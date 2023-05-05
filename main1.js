@@ -43,10 +43,24 @@ function saveToLocalStorage(event){
         name,
         email
     };
-    localStorage.setItem('obj',JSON.stringify(obj));
+    localStorage.setItem(obj.email,JSON.stringify(obj));    
     showUserOnScreen(obj);
 }
 function showUserOnScreen(obj){
     const parentElem=document.getElementById('users');
-    parentElem.innerHTML=parentElem.innerHTML + `<li>${obj.name} - ${obj.email}</li>`
+    const childElem=document.createElement('li');
+    //parentElem.innerHTML=parentElem.innerHTML + `<li>${obj.name} - ${obj.email}</li>`
+    childElem.textContent=obj.name + ' - ' + obj.email;
+
+    const deleteBtn=document.createElement('input');
+    deleteBtn.type='button';
+    deleteBtn.value='Delete';
+    deleteBtn.onclick = () =>{
+        localStorage.removeItem(obj.email);
+        parentElem.removeChild(childElem);
+    }
+    childElem.appendChild(deleteBtn);
+    parentElem.appendChild(childElem);
 }
+
+
