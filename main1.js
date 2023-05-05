@@ -61,6 +61,18 @@ function showUserOnScreen(obj){
     }
     childElem.appendChild(deleteBtn);
     parentElem.appendChild(childElem);
+
+    const editBtn=document.createElement('input');
+    editBtn.type='button';
+    editBtn.value='Edit';
+    editBtn.onclick = () =>{
+        document.getElementById('name').value=obj.name;
+        document.getElementById('email').value=obj.email;
+        localStorage.removeItem(obj.email);
+        parentElem.removeChild(childElem);
+    }
+    childElem.appendChild(editBtn);
+    parentElem.appendChild(childElem);   
 }
 
 
