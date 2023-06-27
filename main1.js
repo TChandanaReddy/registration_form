@@ -43,8 +43,18 @@ function saveToLocalStorage(event){
         name,
         email
     };
+    axios.post("https://crudcrud.com/api/ce5c41806b234423ba409f3437f0dbed/appointmentData",obj)
+        .then((response)=>{
+            showUserOnScreen(response.data);
+            //console.log(response)
+        })
+        .catch((err)=>{
+            document.body.innerHTML=document.body.innerHTML + "<h4> Something went wrong </h4>"
+            console.log(err)
+        })
+    
     localStorage.setItem(obj.email,JSON.stringify(obj));    
-    showUserOnScreen(obj);
+    //showUserOnScreen(obj);
 }
 function showUserOnScreen(obj){
     const parentElem=document.getElementById('users');
