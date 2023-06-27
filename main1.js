@@ -102,8 +102,18 @@ function showUserOnScreen(obj){
     editBtn.onclick = () =>{
         document.getElementById('name').value=obj.name;
         document.getElementById('email').value=obj.email;
-        localStorage.removeItem(obj.email);
-        parentElem.removeChild(childElem);
+        const url=`https://crudcrud.com/api/ce5c41806b234423ba409f3437f0dbed/appointmentData/${obj._id}`;
+        axios.delete(url)
+        .then(()=>{
+            parentElem.removeChild(childElem);
+            //console.log(response)
+        })
+        .catch((err)=>{
+            document.body.innerHTML=document.body.innerHTML + "<h4> Something went wrong </h4>"
+            console.log(err)
+        })
+        // localStorage.removeItem(obj.email);
+        // parentElem.removeChild(childElem);
     }
     childElem.appendChild(editBtn);
     parentElem.appendChild(childElem);   
