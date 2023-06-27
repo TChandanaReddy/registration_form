@@ -52,10 +52,24 @@ function saveToLocalStorage(event){
             document.body.innerHTML=document.body.innerHTML + "<h4> Something went wrong </h4>"
             console.log(err)
         })
-    
-    localStorage.setItem(obj.email,JSON.stringify(obj));    
+    //localStorage.setItem(obj.email,JSON.stringify(obj));    
     //showUserOnScreen(obj);
 }
+
+window.addEventListener("DOMContentLoaded", ()=>{
+    axios.get("https://crudcrud.com/api/ce5c41806b234423ba409f3437f0dbed/appointmentData")
+        .then((response)=>{
+            console.log(response)
+            for(var i=0;i<response.data.length;i++){
+                showUserOnScreen(response.data[i]);
+            }
+        })
+        .catch((err)=>{
+            document.body.innerHTML=document.body.innerHTML + "<h4> Something went wrong </h4>"
+            console.log(err)
+        })
+})
+
 function showUserOnScreen(obj){
     const parentElem=document.getElementById('users');
     const childElem=document.createElement('li');
