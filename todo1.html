@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TODO</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>TODO LIST</h1>
+    </header>
+
+    <section class="container">
+      <form id="my-form" onsubmit="saveToLocalStorage(event)">
+        <h1>Add Item</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="username">
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="tododesc">
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+
+      <h3>TODO</h3>
+      <ul id="incomplete-tasks">
+      </ul>
+
+      <h3>COMPLETED</h3>
+      <ul id="completed-tasks">
+      </ul>
+    
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="todo.js"></script>
+  </body>
+</html>
