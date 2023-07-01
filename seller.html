@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>seller admin</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Seller Admin</h1>
+    </header>
+
+    <section class="container">
+      <form id="my-form" onsubmit="crudcrud(event)">
+        <h1>Add Item</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="Price">Selling Price:</label>
+          <input type="text" id="name" name="sellPrice">
+        </div>
+        <div>
+          <label for="Product">Product Name:</label>
+          <input type="text" id="description" name="ProdName">
+        </div>
+        <div>
+            <label for="Category">Choose a Category:</label>
+            <select id="Category" name="Category" class="dropdown">
+                <option id="food" value="food">Food</option>
+                <option id="elec" value="electronic">Electronic</option>
+                <option id="skin" value="skincare">SkinCare</option>
+            </select>
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+
+      <h2>PRODUCTS</h2>
+
+      <h3>Electronic Items</h3>
+      <ul id="electronicItems">
+      </ul>
+
+      <h3>Food Items</h3>
+      <ul id="foodItems">
+      </ul>
+
+      <h3>Skincare Items</h3>
+      <ul id="skinItems">
+      </ul>
+    
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="seller.js"></script>
+  </body>
+</html>
